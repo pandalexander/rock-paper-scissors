@@ -73,6 +73,8 @@
           computerSelection == "Scissors"
         ) {
           return "It's a tie! Both of you picked Scissors.";
+        } else {
+          return "Hey, something went wrong. You might want to try again.";
         }
       }
 
@@ -97,11 +99,13 @@
             alert(
               `You won that round! Your score is ${playerScore}, the Computer's score is ${computerScore}.`
             );
-          } else {
+          } else if (round.slice(0, 8) == "You lose") {
             computerScore++;
             alert(
               `Sorry, you lost that one. Your score is ${playerScore}, the Computer's score is ${computerScore}.`
             );
+          } else {
+            alert("Hey, something went wrong. You might want to try again.");
           }
         }
         if (playerScore > computerScore) {
@@ -116,19 +120,6 @@
       }
 
       console.log(game());
-
-      // use prompt() to get input from user
-
-      /*
-        // Create variables for playerSelection and computerSelection
-        let getPlayerChoice = prompt(
-          "Choose Your Weapon",
-          "Rock, Paper, or Scissors"
-        );
-        let playerSelection =
-          getPlayerChoice.charAt(0).toUpperCase() +
-          getPlayerChoice.slice(1).toLowerCase();
-      */
     </script>
   </body>
 </html>
