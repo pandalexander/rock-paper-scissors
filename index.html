@@ -35,6 +35,15 @@
         }
       }
 
+      // Create variables for playerSelection and computerSelection
+      let getPlayerChoice = prompt(
+        "Choose Your Weapon",
+        "Rock, Paper, or Scissors"
+      );
+      let playerSelection =
+        getPlayerChoice.charAt(0).toUpperCase() +
+        getPlayerChoice.slice(1).toLowerCase();
+
       // Create function playRound that plays a single round of the game and return a string as a result (case insensitive input)
       function playRound(playerSelection, computerSelection) {
         if (playerSelection == "Rock" && computerSelection == "Rock") {
@@ -72,17 +81,7 @@
           return "It's a tie! Both of you picked Scissors.";
         }
       }
-      // Create variables for playerSelection and computerSelection
-      let getPlayerChoice = prompt(
-        "Choose Your Weapon",
-        "Rock, Paper, or Scissors"
-      );
 
-      let playerSelection =
-        getPlayerChoice.charAt(0).toUpperCase() +
-        getPlayerChoice.slice(1).toLowerCase();
-
-      console.log(playerSelection);
       // Create function called game() that calls the playRound function to play a 5 round game that keeps score and reports winner/loser at the end of each 5 rounds via console.log. Use a for loop.
 
       // use prompt() to get input from user
