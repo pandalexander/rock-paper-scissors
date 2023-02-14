@@ -37,30 +37,47 @@
 
       // Create function playRound that plays a single round of the game and return a string as a result (case insensitive input)
       function playRound(playerSelection, computerSelection) {
-        if (playerSelection == rock && computerSelection == rock) {
+        if (playerSelection == "Rock" && computerSelection == "Rock") {
           return "It's a tie! Both of you picked Rock.";
-        } else if (playerSelection == rock && computerSelection == paper) {
+        } else if (playerSelection == "Rock" && computerSelection == "Paper") {
           return "You lose! Paper beats Rock.";
-        } else if (playerSelection == rock && computerSelection == scissors) {
+        } else if (
+          playerSelection == "Rock" &&
+          computerSelection == "Scissors"
+        ) {
           return "You win! Rock beats Scissors.";
-        } else if (playerSelection == paper && computerSelection == rock) {
+        } else if (playerSelection == "Paper" && computerSelection == "Rock") {
           return "You win! Paper beats Rock.";
-        } else if (playerSelection == paper && computerSelection == paper) {
+        } else if (playerSelection == "Paper" && computerSelection == "Paper") {
           return "It's a tie! Both of you picked Paper.";
-        } else if (playerSelection == paper && computerSelection == scissors) {
+        } else if (
+          playerSelection == "Paper" &&
+          computerSelection == "Scissors"
+        ) {
           return "You lose! Scissors beats Paper.";
-        } else if (playerSelection == scissors && computerSelection == rock) {
+        } else if (
+          playerSelection == "Scissors" &&
+          computerSelection == "Rock"
+        ) {
           return "You lose! Rock beats Scissors.";
-        } else if (playerSelection == scissors && computerSelection == paper) {
+        } else if (
+          playerSelection == "Scissors" &&
+          computerSelection == "Paper"
+        ) {
           return "You win! Scissors beats Paper.";
         } else if (
-          playerSelection == scissors &&
-          computerSelection == scissors
+          playerSelection == "Scissors" &&
+          computerSelection == "Scissors"
         ) {
           return "It's a tie! Both of you picked Scissors.";
         }
       }
-      console.log(playRound(scissors, scissors));
+      // Create variables for playerSelection and computerSelection
+      let playerSelection = prompt(
+        "Choose Your Weapon",
+        "Rock, Paper, or Scissors"
+      );
+
       // Create function called game() that calls the playRound function to play a 5 round game that keeps score and reports winner/loser at the end of each 5 rounds via console.log. Use a for loop.
 
       // use prompt() to get input from user
