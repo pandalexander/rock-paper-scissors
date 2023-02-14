@@ -11,22 +11,31 @@
       // Create function getComputerChoice that will randomly return either "rock", "paper", or "scissors"
 
       // Create rock, paper, and scissor variables
-      let rock;
-      let paper;
-      let scissors;
+      let rock = "Rock";
+      let paper = "Paper";
+      let scissors = "Scissors";
 
       // Generate random integer between 0 and 2
       function randomInt() {
         let number = Math.floor(Math.random() * 3);
         return number;
       }
-      console.log(randomInt());
 
       // Use switch statement to assign integers to variables
-
-      function getComputerChoice() {}
-
-      console.log(randomInt());
+      function getComputerChoice() {
+        switch (randomInt()) {
+          case 0:
+            return rock;
+            break;
+          case 1:
+            return paper;
+            break;
+          case 2:
+            return scissors;
+            break;
+        }
+      }
+      console.log(getComputerChoice());
       // output selected option to console to check
 
       // Create function playRound that plays a single round of the game and return a string as a result (case insensitive input)
