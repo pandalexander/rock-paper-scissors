@@ -37,6 +37,9 @@
 
       // Create function playRound that plays a single round of the game and return a string as a result (case insensitive input)
       function playRound(playerSelection, computerSelection) {
+        playerSelection =
+          playerSelection.charAt(0).toUpperCase() +
+          playerSelection.slice(1).toLowerCase();
         if (playerSelection == "Rock" && computerSelection == "Rock") {
           return "It's a tie! Both of you picked Rock.";
         } else if (playerSelection == "Rock" && computerSelection == "Paper") {
@@ -86,7 +89,7 @@
       let playerSelection =
         getPlayerChoice.charAt(0).toUpperCase() +
         getPlayerChoice.slice(1).toLowerCase();
-*/
+    */
     </script>
   </body>
 </html>
