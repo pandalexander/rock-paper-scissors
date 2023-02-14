@@ -78,18 +78,57 @@
 
       // Create function called game() that calls the playRound function to play a 5 round game that keeps score and reports winner/loser at the end of each 5 rounds via console.log. Use a for loop.
 
+      function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+
+        for (let i = 0; i < 5; i++) {
+          round = playRound(
+            prompt("Choose your weapon: Rock, Paper, or Scissors!", ""),
+            getComputerChoice()
+          );
+          if (round.slice(0, 2) == "It") {
+            // Checks if result is a tie
+            alert(
+              `That was a tie! Your score is ${playerScore}, the Computer's score is ${computerScore}.`
+            );
+          } else if (round.slice(0, 8) == "You win!") {
+            playerScore++;
+            alert(
+              `You won that round! Your score is ${playerScore}, the Computer's score is ${computerScore}.`
+            );
+          } else {
+            computerScore++;
+            alert(
+              `Sorry, you lost that one. Your score is ${playerScore}, the Computer's score is ${computerScore}.`
+            );
+          }
+        }
+        if (playerScore > computerScore) {
+          alert("You won! Congrats!");
+        } else if (playerScore < computerScore) {
+          alert("Sorry, you lost! That's too bad.");
+        } else if (playerScore == computerScore) {
+          alert("It's a tie! Nice.");
+        } else {
+          alert("Something went really wrong here.");
+        }
+      }
+
+      console.log(game());
+
       // use prompt() to get input from user
 
       /*
-      // Create variables for playerSelection and computerSelection
-      let getPlayerChoice = prompt(
-        "Choose Your Weapon",
-        "Rock, Paper, or Scissors"
-      );
-      let playerSelection =
-        getPlayerChoice.charAt(0).toUpperCase() +
-        getPlayerChoice.slice(1).toLowerCase();
-    */
+        // Create variables for playerSelection and computerSelection
+        let getPlayerChoice = prompt(
+          "Choose Your Weapon",
+          "Rock, Paper, or Scissors"
+        );
+        let playerSelection =
+          getPlayerChoice.charAt(0).toUpperCase() +
+          getPlayerChoice.slice(1).toLowerCase();
+      */
     </script>
   </body>
 </html>
