@@ -91,34 +91,35 @@
           );
           if (round.slice(0, 2) == "It") {
             // Checks if result is a tie
-            alert(
+            console.log(
               `That was a tie! Your score is ${playerScore}, the Computer's score is ${computerScore}.`
             );
           } else if (round.slice(0, 8) == "You win!") {
             playerScore++;
-            alert(
+            console.log(
               `You won that round! Your score is ${playerScore}, the Computer's score is ${computerScore}.`
             );
           } else if (round.slice(0, 8) == "You lose") {
             computerScore++;
-            alert(
+            console.log(
               `Sorry, you lost that one. Your score is ${playerScore}, the Computer's score is ${computerScore}.`
             );
           } else {
-            alert("Hey, something went wrong. You might want to try again.");
+            console.log(
+              "Hey, something went wrong. You might want to try again."
+            );
           }
         }
         if (playerScore > computerScore) {
-          alert("You won! Congrats!");
+          console.log("You won! Congrats!");
         } else if (playerScore < computerScore) {
-          alert("Sorry, you lost! That's too bad.");
+          console.log("Sorry, you lost! That's too bad.");
         } else if (playerScore == computerScore) {
-          alert("It's a tie! Nice.");
+          console.log("It's a tie! Nice.");
         } else {
-          alert("Something went really wrong here.");
+          console.log("Something went really wrong here.");
         }
       }
-
       console.log(game());
     </script>
   </body>
