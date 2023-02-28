@@ -7,6 +7,12 @@
     <title>Document</title>
   </head>
   <body>
+    <h1>Let's Play Rock, Paper, Scissors!</h1>
+    <div id="player-choices">
+      <button id="player-rock">Rock</button>
+      <button id="player-paper">Paper</button>
+      <button id="player-scissors">Scissors</button>
+    </div>
     <script>
       // Create function getComputerChoice that will randomly return either "rock", "paper", or "scissors"
       // Create rock, paper, and scissor variables
@@ -120,7 +126,21 @@
           console.log("Something went really wrong here.");
         }
       }
-      console.log(game());
+
+      const rockSelection = document.querySelector("#player-rock");
+      rockSelection.addEventListener("click", function () {
+        console.log(playRound(rock, getComputerChoice()));
+      });
+
+      const paperSelection = document.querySelector("#player-paper");
+      paperSelection.addEventListener("click", function () {
+        console.log(playRound(paper, getComputerChoice()));
+      });
+
+      const scissorsSelection = document.querySelector("#player-scissors");
+      scissorsSelection.addEventListener("click", function () {
+        console.log(playRound(scissors, getComputerChoice()));
+      });
     </script>
   </body>
 </html>
