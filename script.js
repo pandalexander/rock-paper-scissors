@@ -53,7 +53,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Create function called game() that calls the playRound function to play a 5 round game that keeps score and reports winner/loser at the end of each 5 rounds via console.log. Use a for loop.
+// DOM manipulation items that  play rounds and report score
 let playerScore = 0;
 let computerScore = 0;
 const rockSelection = document.querySelector("#player-rock");
@@ -83,6 +83,7 @@ scoreDisplay.textContent = "The score is 0 - 0";
 
 const gameOverMessage = document.querySelector("#game-over-message");
 
+// The function that actually plays games until 5 points are scored by either player
 function updateScore() {
   let round = resultDisplay.textContent;
 
@@ -119,6 +120,6 @@ function updateScore() {
     playerScore + computerScore == 0 ||
     playerScore + computerScore == 1
   ) {
-    gameOverMessage.textContent = "";
+    gameOverMessage.textContent = ""; // resets the game over message at the beginning of the next round
   }
 }
