@@ -1,0 +1,20 @@
+* {
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+  background-color: mistyrose;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  color: antiquewhite;
+  background-color: brown;
+  border-style: none;
+  border-radius: 1em;
+}

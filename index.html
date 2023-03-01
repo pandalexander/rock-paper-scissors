@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
@@ -131,7 +132,7 @@
             "Hey, something went wrong. You might want to try again.";
         }
         if (playerScore == 5 && computerScore < 5) {
-          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}. You won the game! Choose your weapon again to start a new game.`;
+          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}.\n You won the game! Choose your weapon again to start a new game.`;
         } else if (computerScore == 5 && playerScore < 5) {
           scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}. Sorry, you lost the game! Choose your weapon again to start a new game.`;
         } else if (playerScore == 5 && computerScore == 5) {
