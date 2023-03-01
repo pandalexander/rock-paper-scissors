@@ -14,6 +14,7 @@
       <button id="player-scissors">Scissors</button>
     </div>
     <div id="result-display"></div>
+    <div id="score-display"></div>
     <script>
       // Create function getComputerChoice that will randomly return either "rock", "paper", or "scissors"
       // Create rock, paper, and scissor variables
@@ -86,65 +87,61 @@
       }
 
       // Create function called game() that calls the playRound function to play a 5 round game that keeps score and reports winner/loser at the end of each 5 rounds via console.log. Use a for loop.
-
-      function game() {
-        let playerScore = 0;
-        let computerScore = 0;
-
-        for (let i = 0; playerScore < 5 && computerScore < 5; i++) {
-          round = playRound(
-            prompt("Choose your weapon: Rock, Paper, or Scissors!", ""),
-            getComputerChoice()
-          );
-          if (round.slice(0, 2) == "It") {
-            // Checks if result is a tie
-            console.log(
-              `That was a tie! Your score is ${playerScore}, the Computer's score is ${computerScore}.`
-            );
-          } else if (round.slice(0, 8) == "You win!") {
-            playerScore++;
-            console.log(
-              `You won that round! Your score is ${playerScore}, the Computer's score is ${computerScore}.`
-            );
-          } else if (round.slice(0, 8) == "You lose") {
-            computerScore++;
-            console.log(
-              `Sorry, you lost that one. Your score is ${playerScore}, the Computer's score is ${computerScore}.`
-            );
-          } else {
-            console.log(
-              "Hey, something went wrong. You might want to try again."
-            );
-          }
-        }
-        if (playerScore > computerScore) {
-          console.log("You won! Congrats!");
-        } else if (playerScore < computerScore) {
-          console.log("Sorry, you lost! That's too bad.");
-        } else if (playerScore == computerScore) {
-          console.log("It's a tie! Nice.");
-        } else {
-          console.log("Something went really wrong here.");
-        }
-      }
-
+      let playerScore = 0;
+      let computerScore = 0;
       const rockSelection = document.querySelector("#player-rock");
       rockSelection.addEventListener("click", function () {
         resultDisplay.textContent = playRound(rock, getComputerChoice());
+        updateScore();
       });
 
       const paperSelection = document.querySelector("#player-paper");
       paperSelection.addEventListener("click", function () {
         resultDisplay.textContent = playRound(paper, getComputerChoice());
+        updateScore();
       });
 
       const scissorsSelection = document.querySelector("#player-scissors");
       scissorsSelection.addEventListener("click", function () {
         resultDisplay.textContent = playRound(scissors, getComputerChoice());
+        updateScore();
       });
 
       const resultDisplay = document.querySelector("#result-display");
-      resultDisplay.textContent = "Display will end up here";
+      resultDisplay.textContent =
+        "Round results will display here. Choose your weapon!";
+
+      const scoreDisplay = document.querySelector("#score-display");
+      scoreDisplay.textContent = "The score is 0 - 0";
+
+      function updateScore() {
+        let round = resultDisplay.textContent;
+
+        if (round.slice(0, 2) == "It") {
+          // Checks if result is a tie
+          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}`;
+        } else if (round.slice(0, 8) == "You win!") {
+          playerScore++;
+          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}`;
+        } else if (round.slice(0, 8) == "You lose") {
+          computerScore++;
+          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}`;
+        } else {
+          scoreDisplay.textContent =
+            "Hey, something went wrong. You might want to try again.";
+        }
+        if (playerScore == 5 && computerScore < 5) {
+          scoreDisplay.textContent = `The final score is ${playerScore} - ${computerScore}. You won! Congrats!`;
+        } else if (computerScore == 5 && playerScore < 5) {
+          scoreDisplay.textContent = `The final score is ${playerScore} - ${computerScore}. Sorry, you lost! That's too bad.`;
+        } else if (playerScore == 5 && computerScore == 5) {
+          scoreDisplay.textContent = `The final score is ${playerScore} - ${computerScore}. It's a tie! Nice.`;
+        }
+        if (playerScore >= 5 || computerScore >= 5) {
+          playerScore = 0;
+          computerScore = 0;
+        }
+      }
     </script>
   </body>
 </html>
