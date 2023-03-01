@@ -13,6 +13,7 @@
       <button id="player-paper">Paper</button>
       <button id="player-scissors">Scissors</button>
     </div>
+    <div id="result-display"></div>
     <script>
       // Create function getComputerChoice that will randomly return either "rock", "paper", or "scissors"
       // Create rock, paper, and scissor variables
@@ -129,18 +130,21 @@
 
       const rockSelection = document.querySelector("#player-rock");
       rockSelection.addEventListener("click", function () {
-        console.log(playRound(rock, getComputerChoice()));
+        resultDisplay.textContent = playRound(rock, getComputerChoice());
       });
 
       const paperSelection = document.querySelector("#player-paper");
       paperSelection.addEventListener("click", function () {
-        console.log(playRound(paper, getComputerChoice()));
+        resultDisplay.textContent = playRound(paper, getComputerChoice());
       });
 
       const scissorsSelection = document.querySelector("#player-scissors");
       scissorsSelection.addEventListener("click", function () {
-        console.log(playRound(scissors, getComputerChoice()));
+        resultDisplay.textContent = playRound(scissors, getComputerChoice());
       });
+
+      const resultDisplay = document.querySelector("#result-display");
+      resultDisplay.textContent = "Display will end up here";
     </script>
   </body>
 </html>
