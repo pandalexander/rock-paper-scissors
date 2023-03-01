@@ -16,6 +16,7 @@
     </div>
     <div id="result-display"></div>
     <div id="score-display"></div>
+    <div id="game-over-message"></div>
     <script>
       // Create function getComputerChoice that will randomly return either "rock", "paper", or "scissors"
       // Create rock, paper, and scissor variables
@@ -115,6 +116,8 @@
       const scoreDisplay = document.querySelector("#score-display");
       scoreDisplay.textContent = "The score is 0 - 0";
 
+      const gameOverMessage = document.querySelector("#game-over-message");
+
       function updateScore() {
         let round = resultDisplay.textContent;
 
@@ -132,15 +135,26 @@
             "Hey, something went wrong. You might want to try again.";
         }
         if (playerScore == 5 && computerScore < 5) {
-          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}.\n You won the game! Choose your weapon again to start a new game.`;
+          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}`;
+          gameOverMessage.textContent =
+            "You won the game! Choose your weapon again to start a new game.";
         } else if (computerScore == 5 && playerScore < 5) {
-          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}. Sorry, you lost the game! Choose your weapon again to start a new game.`;
+          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}`;
+          gameOverMessage.textContent =
+            "Sorry, you lost the game! Choose your weapon again to start a new game.";
         } else if (playerScore == 5 && computerScore == 5) {
-          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}. It's a tie! Choose your weapon again to start a new game.`;
+          scoreDisplay.textContent = `The score is ${playerScore} - ${computerScore}`;
+          gameOverMessage.textContent =
+            "It's a tie! Choose your weapon again to start a new game.";
         }
         if (playerScore >= 5 || computerScore >= 5) {
           playerScore = 0;
           computerScore = 0;
+        } else if (
+          playerScore + computerScore == 0 ||
+          playerScore + computerScore == 1
+        ) {
+          gameOverMessage.textContent = "";
         }
       }
     </script>
